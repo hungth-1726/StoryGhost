@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="listener"
+            type="com.example.storyghost.screen.story.StoryAdapter.HandleItemStory" />
+
+        <variable
+            name="story"
+            type="com.example.storyghost.data.model.Story" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_70"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:onClick="@{() -> listener.moveToDetailScreen(story)}">
+
+        <ImageView
+            android:id="@+id/img_story"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_8"
+            android:layout_weight="3"
+            android:scaleType="centerCrop"
+            bind:imageUrl="@{story.getUri()}"/>
+
+        <TextView
+            android:id="@+id/txt_title_story"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{story.getTitle()}" />
+
+        <ImageView
+            android:id="@+id/img_favorite"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_margin="@dimen/dp_8"
+            android:layout_weight="1"
+            android:background="@drawable/ic_filter_vintage_black_24dp" />
+
+    </LinearLayout>
+
+</layout>
